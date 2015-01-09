@@ -11,43 +11,47 @@
 	<properties>
 		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<org.springframework.version>4.1.3.RELEASE</org.springframework.version>
+		<jetty.version>9.2.6.v20141205</jetty.version>
 	</properties>
+
 	<dependencies>
 		<!-- springmvc -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>4.1.3.RELEASE</version>
+			<version>${org.springframework.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
-			<version>4.1.3.RELEASE</version>
+			<version>${org.springframework.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
-			<version>4.1.3.RELEASE</version>
+			<version>${org.springframework.version}</version>
 		</dependency>
 
 		<!-- spring事务管理 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
-			<version>4.1.3.RELEASE</version>
+			<version>${org.springframework.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<version>4.1.3.RELEASE</version>
+			<version>${org.springframework.version}</version>
 		</dependency>
 
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
-			<version>4.1.3.RELEASE</version>
+			<version>${org.springframework.version}</version>
 		</dependency>
 
 
@@ -55,11 +59,14 @@
 			<version>4.1.3.RELEASE</version> </dependency> -->
 
 		<!-- springmvc返回Json时依赖的jar包，但是没有加到pom中，需要在此添加 -->
+		<!-- <dependency> <groupId>org.codehaus.jackson</groupId> <artifactId>jackson-mapper-asl</artifactId> 
+			<version>1.9.12</version> </dependency> -->
 		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-mapper-asl</artifactId>
-			<version>1.9.11</version>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.5.0</version>
 		</dependency>
+
 
 		<dependency>
 			<groupId>commons-io</groupId>
@@ -88,6 +95,19 @@
 			<artifactId>h2</artifactId>
 			<version>1.4.184</version>
 		</dependency>
+		<!-- hibernate验证框架 -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.1.3.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>javax.el-api</artifactId>
+			<version>3.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+
 
 		<!-- end hibernate -->
 
@@ -102,17 +122,17 @@
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-webapp</artifactId>
-			<version>9.2.6.v20141205</version>
+			<version>${jetty.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-servlet</artifactId>
-			<version>9.2.6.v20141205</version>
+			<version>${jetty.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-http</artifactId>
-			<version>9.2.6.v20141205</version>
+			<version>${jetty.version}</version>
 		</dependency>
 		<!-- end jetty -->
 

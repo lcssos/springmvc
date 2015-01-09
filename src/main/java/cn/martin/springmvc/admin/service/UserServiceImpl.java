@@ -22,9 +22,7 @@ public class UserServiceImpl implements IUserService {
 
 	public User getUser(String id) {
 
-		User user = new User();
-
-		return user;
+		return userDao.get(id);
 	}
 
 	public void saveUser(User user) {

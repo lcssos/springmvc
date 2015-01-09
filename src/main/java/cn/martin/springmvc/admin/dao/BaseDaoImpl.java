@@ -25,6 +25,10 @@ public abstract class BaseDaoImpl<T, PK extends Serializable> implements IBaseDa
 	public BaseDaoImpl() {
 		ParameterizedType type = (ParameterizedType) this.getClass().getGenericSuperclass();
 		this.clazz = (Class) type.getActualTypeArguments()[0];
+
+		// ResolvableType resolvableType = ResolvableType.forClass(this.getClass());
+		// this.clazz = (Class<T>) resolvableType.getInterfaces()[0].getGeneric(1).resolve();
+
 	}
 
 	public void save(T t) {
@@ -44,7 +48,6 @@ public abstract class BaseDaoImpl<T, PK extends Serializable> implements IBaseDa
 	public List<T> findAll() {
 		return sessionFactory.getCurrentSession().createCriteria(clazz).list();
 	}
-	
 
 	@SuppressWarnings("unchecked")
 	public List<T> findList(String hql) {
