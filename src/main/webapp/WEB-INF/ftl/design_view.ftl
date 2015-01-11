@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="<@spring.url '/css/icons.css'/>"/>
     <script type="text/javascript" src="<@spring.url '/extjs/ext-all-debug.js'/>"></script>
     <script type="text/javascript" src="<@spring.url '/extjs/locale/ext-lang-zh_CN.js'/>"></script>
-    <script type="text/javascript" src="<@spring.url '/js/StoreJson.js'/>"></script>
+    <script type="text/javascript" src="<@spring.url '/js/design/viewapp.js'/>"></script>
 
     <style type="text/css">
         html, body, form {
@@ -22,11 +22,6 @@
     </style>
 </head>
 <body>
-
-<div class="form">
-<#--<label>姓名</label>
-<input type="text" name="name" value=""/>-->
-</div>
 
 
 </body>

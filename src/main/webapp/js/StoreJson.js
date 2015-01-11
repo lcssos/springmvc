@@ -10,61 +10,62 @@ Ext.onReady(function () {
             {name: 'name', type: 'string'},
             {name: 'age', type: 'int'}
         ],
-        proxy:{
-            type:'ajax',
-            api: {
-                create  : '/controller/new',
-                read    : '/controller/load',
-                update  : '/controller/update',
-                destroy : '/controller/destroy_action'
-            }
-        }
-
-    });
-
-    Ext.define("MyStore",{
-        pageSize:30,
-        model:"User",
-        autoLoad: true,
-        proxy:{
-            type:"ajax",
-            reader:{
-                type: 'json',
-                root: "rows",
-                totalProperty: 'total'
-            }
-        },
-        constructor:function(config){
-            var me = this;
-            config = config || {};
-            Ext.apply(me, config);
-            me.callParent(config);
-        }
-    });
-
-    var store = Ext.create("MyStore",{
-        autoLoad: true,
-        model:"User",
-        proxy:{
-            url:"admin/user/page"
-        }
-    });
-
- /*   var store = Ext.create('Ext.data.Store', {
-        //自动加载ajax
-        autoLoad: true,
-        model: 'User',
-        pageSize: 30,
         proxy: {
             type: 'ajax',
-            url: 'admin/user/page',
-            reader: {
-                type: 'json',
-                root: "rows",
-                totalProperty: 'total'
+            api: {
+                create: '/controller/new',
+                read: '/controller/load',
+                update: '/controller/update',
+                destroy: '/controller/destroy_action'
             }
         }
-    });*/
+
+    });
+
+    Ext.define("Ext.ux.MyStore", {
+        extend:"Ext.data.Store",
+        alias:"store.mystore",
+        constructor: function (config) {
+            config = Ext.apply({
+                pageSize: 30,
+                autoLoad: true,
+                model:"User",
+                proxy: {
+                    type: "ajax",
+                    reader: {
+                        type: 'json',
+                        root: "rows",
+                        totalProperty: 'total'
+                    }
+                }
+            }, config);
+            this.callParent([config]);
+        }
+    });
+
+    var store = Ext.create("Ext.ux.MyStore", {
+        autoLoad: true,
+        model: "User",
+        proxy: {
+            url: "admin/user/page"
+        }
+    });
+
+    /*   var store = Ext.create('Ext.data.Store', {
+     //自动加载ajax
+     autoLoad: true,
+     model: 'User',
+     pageSize: 30,
+     proxy: {
+     type: 'ajax',
+     url: 'admin/user/page',
+     reader: {
+     type: 'json',
+     root: "rows",
+     totalProperty: 'total'
+     }
+     }
+     });*/
 
     //store.loadPage(1);
 

@@ -10,7 +10,7 @@ Ext.define("My.view.UserView", {
     width: '90%',
     height: 500,
     selType: "checkboxmodel",       //增加选择框
-    plugins: [{ptype: 'cellediting', clicksToEdit: 1}],
+    plugins: [{ptype: 'rowediting', clicksToEdit: 1}],
     //field与plugin一起，启用编辑模式
     columns: [
         Ext.create("Ext.grid.RowNumberer", {}),
@@ -23,13 +23,7 @@ Ext.define("My.view.UserView", {
         },
         {
             text: "年龄", dataIndex: "age", width: 100, field: {
-            xtype: "numberfield",
-            summaryType: 'average',
-            summaryRenderer: function(value, summaryData, dataIndex) {
-                //alert(value);
-                //return Ext.String.format('平均年龄是：{0}', value);
-                return value;
-            }
+            xtype: "numberfield"
         }
         }, {
             xtype: "booleancolumn",
@@ -41,9 +35,7 @@ Ext.define("My.view.UserView", {
         }, {
             text: "生日",
             dataIndex: "birthday",
-            width: 150,
-            xtype: 'datecolumn',
-            format: 'U'
+            width: 150
         },
         {xtype: "templatecolumn", tpl: "用户的姓名是{name}，年龄是{age}", width: 200},
         {
@@ -69,6 +61,7 @@ Ext.define("My.view.UserView", {
         }
         },
         {xtype: "button", text: "修改", iconCls: "table_edit"}, "-",
+        {xtype: "button", text: "保存", id: "btn_save", iconCls: "table_save"},
         {xtype: "button", text: "删除", id: "btn_delete", iconCls: "table_delete"}, "->",
         {
             xtype: "button", text: "查看", iconCls: "table_add", handler: function (o) {

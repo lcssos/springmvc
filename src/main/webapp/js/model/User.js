@@ -21,10 +21,6 @@ Ext.define("My.model.User", {
             type: 'string'
         }
     ],
-    validations: [
-        {type: 'length', field: 'name', min: 2, max: 6},
-        {type: 'age', field: "age", min: 0, max: 150}
-    ],
     proxy: {
         type: 'ajax',
         api: {
