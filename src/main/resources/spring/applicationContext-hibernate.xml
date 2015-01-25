@@ -40,7 +40,7 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 
 		<!-- 基本属性 url、user、password -->
-		<property name="url" value="jdbc:h2:file:/E:/testdb;DB_CLOSE_DELAY=-1;TRACE_LEVEL_SYSTEM_OUT=2" />
+		<property name="url" value="jdbc:h2:file:/C:/java/testdb;DB_CLOSE_DELAY=-1;TRACE_LEVEL_SYSTEM_OUT=2" />
 		<property name="username" value="root" />
 		<property name="password" value="oseven++" />
 
